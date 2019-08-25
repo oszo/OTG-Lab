@@ -1,0 +1,61 @@
+version: '2'
+services:
+  otg_config_db1:
+      image: mariadb:10.1
+      container_name: otg_config_db1
+      restart: always
+      volumes:
+        - ./db1/initdb/:/docker-entrypoint-initdb.d
+      environment:
+        - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd
+        - MYSQL_DATABASE=login
+  otg_config_web1:
+      build:
+        context: .
+        dockerfile: Dockerfile-web1
+      container_name: otg_config_web1
+      restart: always
+      volumes:
+        - ./web1/:/var/www/html
+      expose:
+        - "9000"
+      links:
+        - otg_config_db1:otg_config_db1
+  otg_config_engin1:
+      build:
+        context: .
+        dockerfile: Dockerfile-engin1
+      container_name: otg_config_engin1
+      restart: always
+      volumes_from:
+        - otg_config_web1
+      links:
+        - otg_config_db1:otg_config_db1
+      ports:
+        - 19301:80
+      command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
+
+  otg_config_db2:
+      image: mariadb:10.1
+      container_name: otg_config_db2
+      restart: always
+      volumes:
+        - ./db2/initdb/:/docker-entrypoint-initdb.d
+      environment:
+        - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd2
+        - MYSQL_DATABASE=login
+  otg_config_app2:
+      build:
+        context: .
+        dockerfile: Dockerfile-web2
+      container_name: otg_config_app2
+      restart: always
+      volumes:
+        - ./engin2/apache2.conf:/etc/apache2/apache2.conf
+        - ./engin2/sites-enabled:/etc/apache2/sites-enabled
+        - ./engin2/ssl:/etc/apache2/ssl
+      ports:
+        - 19302:80
+        - 19303:443
+      links:
+        - otg_config_db2:otg_config_db2

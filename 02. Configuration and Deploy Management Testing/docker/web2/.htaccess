@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /test
+RewriteRule ^/?(api)/? put.php [NC]
+RewriteCond %{REQUEST_METHOD} (PUT|DELETE)
+RewriteRule .* put.php
