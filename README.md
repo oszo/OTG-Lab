@@ -6,9 +6,23 @@
 </h1>
 <h4 align="center">OTG-Lab - CTF Lab follow OWASP Testing Guide v4</h4>
 
-## introduction
+## Introduction
 
 `OTG-Lab` is a lab for beginners that need to practice to perform Web Application Penetration Testing with CTF style, follow [OTGv4](https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents). Almost all the labs can launch by docker.
+
+## Todo
+
+- [x] 1.  Information Gathering
+- [ ] 2.  Configuration and Deploy Management Testing
+- [ ] 3.  Identity Management Testing
+- [ ] 4.  Authentication Testing
+- [ ] 5.  Authorization Testing
+- [ ] 6.  Session Management Testing
+- [ ] 7.  Input Validation Testing
+- [ ] 8.  Error Handling
+- [ ] 9.  Cryptography
+- [ ] 10. Business Logic Testing
+- [ ] 11. Client Side Testing
 
 ## Contribution
 
