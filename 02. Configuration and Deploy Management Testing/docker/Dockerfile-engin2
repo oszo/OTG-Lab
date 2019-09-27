@@ -24,8 +24,11 @@ COPY engin2/config/apache/000-default.conf /etc/apache2/sites-available/
 COPY engin2/config/webdav/webdav.conf /etc/apache2/sites-available/
 COPY engin2/config/webdav/htdig.exp .
 
-RUN mkdir /var/www/WebDAV && \
-	mkdir /var/www/WebDAV/atoms && \
+RUN rm /var/www/html/index.html
+COPY web2/ /var/www/html/
+
+RUN mkdir /var/www/WebDAVforVulnAdmin && \
+	mkdir /var/www/WebDAVforVulnAdmin/test_create_dir && \
 	chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP /var/www && \
 	a2enmod dav dav_fs && \
 	./htdig.exp /etc/apache2/users.password $WEBDAV_REALM $WEBDAV_USER $WEBDAV_PW && \
