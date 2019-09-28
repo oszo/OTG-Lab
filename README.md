@@ -8,12 +8,31 @@
 
 ## Introduction
 
-`OTG-Lab` is a lab for beginners that need to practice to perform Web Application Penetration Testing with CTF style, follow [OTGv4](https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents). Almost all the labs can launch by docker.
+`OTG-Lab` is a lab for beginners that need to practice to perform Web Application Penetration Testing with CTF style, follow [OTGv4](https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents).
+
+## Requirements
+
+* Docker
+* Docker Compose
+
+## Quick start
+
+Almost all the labs can launch by docker compose. Just clone this git repository and cd into each folder and run `docker-compse up` such as follow:
+
+```bash
+$ git clone https://github.com/oszo/OTG-Lab.git
+$ cd OTG-Lab
+$ cd "02. Configuration and Deploy Management Testing" # Go to the lab directory you want to do.
+$ cd docker
+$ docker-compose up
+```
+
+The challenge order is in the `README.md` file in each lab directory. You can read the challenge order by click into each lab directory in this git repository.
 
 ## Todo
 
 - [x] 1.  Information Gathering
-- [ ] 2.  Configuration and Deploy Management Testing
+- [X] 2.  Configuration and Deploy Management Testing
 - [ ] 3.  Identity Management Testing
 - [ ] 4.  Authentication Testing
 - [ ] 5.  Authorization Testing

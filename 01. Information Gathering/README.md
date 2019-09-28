@@ -2,6 +2,10 @@
 
 ## 1. Information Gathering
 
+### Challenge Order:
+
+#### Lab-I
+
 Target of this lab is on domain [vulncompany.com](http://www.vulncompany.com/)
 
 This lab has 10 flags as follows topic:
