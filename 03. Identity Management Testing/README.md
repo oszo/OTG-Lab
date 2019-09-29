@@ -12,12 +12,20 @@ Target of this lab is on follows URLs:
 
 This lab has 1 flags as follows topic:
 
+- Role Definitions
+- User Registration Process
+
+#### Lab-II
+
+Target of this lab is on follows URLs:
+
+* http://[DockerIP]:52024
+
+This lab has 1 flags as follows topic:
+
 - Infrastructure Configuration
 - Application Platform Configuration
 - Enumerate Infrastructure and Application Interfaces
-
-Review file `engin1-config.tar.gz` and `web1.tar.gz` with above topics
-
 
 ### Start Labs
 
