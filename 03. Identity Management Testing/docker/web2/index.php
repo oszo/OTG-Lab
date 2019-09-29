@@ -1,7 +1,31 @@
 <?php
+    session_set_cookie_params(3600,"/");
     session_start();
-    if( !isset($_SESSION["user"]) ){
+    if( !isset($_SESSION["user3l2"]) ){
         header("location:login.php");
+    }
+
+    function a( $string, $action = 'e' ) {
+      // you may change these values to your own
+      $secret_key = "";
+      if( isset($_SESSION["pass"]) ){
+        $secret_key = $_SESSION["pass"];
+      }
+      $secret_iv = 's3cret_iv';
+      
+      $output = false;
+      $encrypt_method = "AES-256-CBC";
+      $key = hash( 'sha256', $secret_key );
+      $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+      
+      if( $action == 'e' ) {
+        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+      }
+      else if( $action == 'd' ){
+        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+      }
+      
+      return $output;
     }
 ?>
 <!doctype html>
@@ -24,7 +48,7 @@
 
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">EZ-Company</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Vuln-Company</a>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <a class="nav-link" href="logout.php">Sign out</a>
@@ -81,56 +105,15 @@
               </li>
             </ul>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted">
-                <span data-feather="chevron-down"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="download.php?file=upload/201807.pdf" target="_blank">
-                  <span data-feather="file-text"></span>
-                  Current month
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="download.php?file=upload/201806.pdf" target="_blank">
-                  <span data-feather="file-text"></span>
-                  Last month
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="download.php?file=upload/201805.pdf" target="_blank">
-                  <span data-feather="file-text"></span>
-                  Two month ago
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="download.php?file=upload/2017.pdf" target="_blank">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
-                </a>
-              </li>
-            </ul>
           </div>
         </nav>
 
 <?php 
     if( isset($_GET['page']) ){
         try {
-	    $nullbyteindex = stripos($_GET['page'], "\0");
-            if($nullbyteindex>0)
-	    {
-                include(substr($_GET['page'],0,$nullbyteindex));
-	    }
-	    else
-	    {
-                include($_GET['page'].'.php');
-            }
-        }
-        catch(Exception $e) {
-            echo "Error: Not found \"include('".$_GET['page'].".php');\" resource.";
+          include($_GET['page'].'.php');
+        } catch(Exception $e) {
+          echo "Error: Not found \"include('".$_GET['page'].".php');\" resource.";
         }
     }
 ?>

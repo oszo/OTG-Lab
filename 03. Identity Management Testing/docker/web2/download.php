@@ -1,6 +1,7 @@
 <?php
+    session_set_cookie_params(3600,"/");
     session_start();
-    if( !isset($_SESSION["user"]) ){
+    if( !isset($_SESSION["user3l2"]) ){
         header("location:login.php");
     } else {
         $file = $_GET['file'];

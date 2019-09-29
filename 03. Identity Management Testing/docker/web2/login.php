@@ -1,24 +1,43 @@
 <?php
+    session_set_cookie_params(3600,"/");
     session_start();
-    if( isset($_SESSION["user"]) ){
+    if( isset($_SESSION["user3l2"]) ){
         header("location:index.php?page=dashboard");
-    } else {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password']) ) {
-
-            $user_status = false;
-            $users = array("EPY0109", "EPY0112", "EPY0113", "EPY0139", "EPY0155", "EPY0182", "EPY0190", "EPY0201", "EPY0328"); 
-            foreach ($users as $user) {
-                if ( $user === $_POST['username'] ){
-                    $user_status = true;
-                }
-            }
-
-            if ( $user_status == true && $_POST['password']=="SaleD3f@ultPass" ){
-                $_SESSION["user"] = $_POST['username'];
-                header("location:index.php?page=dashboard");
-            }
-
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password']) ) {
+      function a( $string, $action = 'e' ) {
+        // you may change these values to your own
+        $secret_key = $_POST['password'];
+        $secret_iv = 's3cret_iv';
+        
+        $output = false;
+        $encrypt_method = "AES-256-CBC";
+        $key = hash( 'sha256', $secret_key );
+        $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+        
+        if( $action == 'e' ) {
+          $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
         }
+        else if( $action == 'd' ){
+          $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+        }
+        
+        return $output;
+      }
+
+      $user_status = false;
+      $users = array("eXE4cXl2eE5uamNOOURiZllQU2RQQT09", "cHNFV1dpZDZERW9JLzZ3VWFLeGVCQT09", "djNZTjlpK2xxV0pqOHNZbEdiNDZ4UT09", "SEpLdTFDT2szUFpTK1pBL2htL2k4dz09", "ZEJQbEx3dEFjOXRoTzJSbUpNUW1wZz09", "WDVVaDEwaGJ3WnU3dDFRQ2tFYnFLQT09", "ZzA0dUZELzlWOThQWXZpaWY2VFBiZz09", "eHFmWXNaL0N6S0c5azVab09uMlBYdz09", "Y243cmZiMEE1RC9yVnFKblZxRU1iUT09"); 
+      foreach ($users as $user) {
+          if ( $user === a($_POST['username'], 'e') ){
+              $user_status = true;
+              $_SESSION["user3l2"] = $_POST['username'];
+              $_SESSION["pass"] = $_POST['password'];
+              header("location:index.php?page=dashboard");
+          }
+      }
+
+    } else {
+      session_unset();
+      session_destroy();
     }
 ?>
 
@@ -46,7 +65,7 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
-          <h3 class="masthead-brand text-success">EZ-Company</h3>
+          <h3 class="masthead-brand text-success">Vuln-Company</h3>
         </div>
       </header>
 
@@ -64,7 +83,7 @@
                     <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 <div class="text-center">
-                    <p id="emailHelp" class="form-text text-muted">คู่มือการใช้งานสำหรับพนักงานขายใหม่ <a href="manual.pdf" target="_blank">Download</a></p>
+                    <p id="emailHelp" class="form-text text-muted">Guide for new employees <a href="manual.pdf" target="_blank">Download</a></p>
                 </div>
                 <div class="text-center">
                     <input type="submit" class="btn btn-lg btn-block btn-success" name="login" value="Login">
@@ -87,7 +106,7 @@
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
-          <p>Power by <a href="#">EZ-Company</a>.</p>
+          <p>Power by <a href="#">Vuln-Company</a>.</p>
         </div>
       </footer>
     </div>

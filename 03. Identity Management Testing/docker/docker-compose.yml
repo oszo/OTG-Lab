@@ -9,24 +9,46 @@ services:
   #     environment:
   #       - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd
   #       - MYSQL_DATABASE=login
-  otg_ident_web1:
+  # otg_ident_web1:
+  #     build:
+  #       context: .
+  #       dockerfile: Dockerfile-web1
+  #     container_name: otg_ident_web1
+  #     restart: always
+  #     volumes:
+  #       - ./web1/:/var/www/html
+  #     expose:
+  #       - "9000"
+  # otg_ident_engin1:
+  #     build:
+  #       context: .
+  #       dockerfile: Dockerfile-engin1
+  #     container_name: otg_ident_engin1
+  #     restart: always
+  #     volumes_from:
+  #       - otg_ident_web1
+  #     ports:
+  #       - 52023:80
+  #     command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
+
+  otg_ident_web2:
       build:
         context: .
-        dockerfile: Dockerfile-web1
-      container_name: otg_ident_web1
+        dockerfile: Dockerfile-web2
+      container_name: otg_ident_web2
       restart: always
       volumes:
-        - ./web1/:/var/www/html
+        - ./web2/:/var/www/html
       expose:
         - "9000"
   otg_ident_engin1:
       build:
         context: .
-        dockerfile: Dockerfile-engin1
-      container_name: otg_ident_engin1
+        dockerfile: Dockerfile-engin2
+      container_name: otg_ident_engin2
       restart: always
       volumes_from:
-        - otg_ident_web1
+        - otg_ident_web2
       ports:
-        - 52023:80
+        - 52024:80
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
