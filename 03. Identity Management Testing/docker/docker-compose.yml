@@ -41,7 +41,7 @@ services:
         - ./web2/:/var/www/html
       expose:
         - "9000"
-  otg_ident_engin1:
+  otg_ident_engin2:
       build:
         context: .
         dockerfile: Dockerfile-engin2
