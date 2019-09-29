@@ -1,0 +1,29 @@
+<h4 align="center">OTG-Lab - CTF Lab follow OWASP Testing Guide v4</h4>
+
+## 3. Identity Management Testing
+
+### Challenge Order:
+
+#### Lab-I
+
+Target of this lab is on follows URLs:
+
+* http://[DockerIP]:52023
+
+This lab has 1 flags as follows topic:
+
+- Infrastructure Configuration
+- Application Platform Configuration
+- Enumerate Infrastructure and Application Interfaces
+
+Review file `engin1-config.tar.gz` and `web1.tar.gz` with above topics
+
+
+### Start Labs
+
+```bash
+$ cd OTG-Lab
+$ cd "03. Identity Management Testing"
+$ cd docker
+$ docker-compose up
+```

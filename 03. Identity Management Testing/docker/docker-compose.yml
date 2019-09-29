@@ -1,0 +1,32 @@
+version: '2'
+services:
+  # otg_config_db1:
+  #     image: mariadb:10.1
+  #     container_name: otg_config_db1
+  #     restart: always
+  #     volumes:
+  #       - ./db1/initdb/:/docker-entrypoint-initdb.d
+  #     environment:
+  #       - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd
+  #       - MYSQL_DATABASE=login
+  otg_ident_web1:
+      build:
+        context: .
+        dockerfile: Dockerfile-web1
+      container_name: otg_ident_web1
+      restart: always
+      volumes:
+        - ./web1/:/var/www/html
+      expose:
+        - "9000"
+  otg_ident_engin1:
+      build:
+        context: .
+        dockerfile: Dockerfile-engin1
+      container_name: otg_ident_engin1
+      restart: always
+      volumes_from:
+        - otg_ident_web1
+      ports:
+        - 52023:80
+      command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
