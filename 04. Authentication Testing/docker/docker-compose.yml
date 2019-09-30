@@ -1,0 +1,12 @@
+version: '2'
+services:
+
+  otg_auth_engin1:
+    build:
+      context: .
+      dockerfile: Dockerfile-engin1
+    container_name: otg_auth_engin1
+    restart: always
+    ports:
+      - 52025:8080
+    command: ["catalina.sh", "run"]

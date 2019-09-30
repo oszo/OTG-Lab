@@ -1,0 +1,4 @@
+FROM tomcat:8.5.46-jdk8-openjdk
+COPY engin1/conf.d/Flag.txt /
+COPY engin1/context.xml webapps/manager/META-INF/
+COPY engin1/conf/ /usr/local/tomcat/conf/
