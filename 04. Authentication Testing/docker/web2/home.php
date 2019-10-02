@@ -1,4 +1,5 @@
 <?php
+include "db_con.php";
 session_set_cookie_params(3600,"/");
 session_start();
 if( !isset($_SESSION["user4l2"]) ){
@@ -23,6 +24,31 @@ function ckxl( $string, $action = 'e' ) {
   }
   return $output;
 }
+
+$user_id = "";
+$user_name = $_SESSION['user4l2'];
+$user_entry_date = "";
+$user_status = "Active";
+
+try {
+  $sth = $dbh->prepare("SELECT * FROM tbl_users WHERE username=? limit 0,1");
+  $sth->execute(array(md5($_SESSION['user4l2'])));
+  $result = [];
+  while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+      $result[] = $row;
+  }
+  if(!$result) {
+      header('Location:index.php');
+      exit;
+  };
+  $user_id = $result[0]['user_id'];
+  $user_entry_date = $result[0]['entry_date'];
+} catch (PDOException $e) {
+  log_error("Failed to select user", $e->getMessage(), $e->getCode(), array('exception' => $e));
+  session_unset();
+  session_destroy();
+  header('Location:index.php');
+}  
 ?>
 
 
@@ -35,7 +61,7 @@ function ckxl( $string, $action = 'e' ) {
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Account Management System V3</title>
+    <title>Account Management System V4</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,10 +82,7 @@ function ckxl( $string, $action = 'e' ) {
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link">guest <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">(UserID : 8)</a>
+              <a class="nav-link"><?php echo($_SESSION["user4l2"]); ?> <span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0" method="GET" action="logout.php">
@@ -75,19 +98,30 @@ function ckxl( $string, $action = 'e' ) {
       <p class="lead">
         <div class="row">
           <div class="col-4 text-right">ID:</div>
-          <div class="col-8 text-left">8</div>
+          <div class="col-8 text-left"><?php echo($user_id); ?></div>
         </div>
         <div class="row">
           <div class="col-4 text-right">Username:</div>
-          <div class="col-8 text-left">guest</div>
+          <div class="col-8 text-left"><?php echo($user_name); ?></div>
         </div>
         <div class="row">
-          <div class="col-4 text-right">Email:</div>
-          <div class="col-8 text-left">guest@ezcompany.com</div>
+          <div class="col-4 text-right">Entry Date:</div>
+          <div class="col-8 text-left"><?php echo($user_entry_date); ?></div>
         </div>
         <div class="row">
           <div class="col-4 text-right">Status:</div>
-          <div class="col-8 text-left">active</div>
+          <div class="col-8 text-left"><?php echo($user_status); ?></div>
+        </div>
+        <div class="row">
+          <div class="col-4 text-right">Flag:</div>
+          <div class="col-8 text-left">
+          <?php if(ckxl("cWtsWXd5a1R0WEFwbm0xZHZndHFaSnBlVUxYQ0o1YTM1NjBkRTMyd3ZYYVd2NktuMkVHMGZmWnpneUVtR3RaOQ==", 'd')){
+            echo(ckxl("cWtsWXd5a1R0WEFwbm0xZHZndHFaSnBlVUxYQ0o1YTM1NjBkRTMyd3ZYYVd2NktuMkVHMGZmWnpneUVtR3RaOQ==", 'd'));
+          } else if(ckxl("QmVyTXdzQkVnQkJDNWhjZzN5TEQ0bkNNT0hjMGoya1Z3aFl0bXc2RmlCdnR3WUIydGtJUFoyZmNNSjFid2tXSQ==", 'd')){
+            echo(ckxl("QmVyTXdzQkVnQkJDNWhjZzN5TEQ0bkNNT0hjMGoya1Z3aFl0bXc2RmlCdnR3WUIydGtJUFoyZmNNSjFid2tXSQ==", 'd'));
+          } 
+          ?>
+          </div>
         </div>
       </p>
       <p class="lead"></p>
