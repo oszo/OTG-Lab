@@ -1,7 +1,7 @@
 <?php
     session_set_cookie_params(3600,"/");
     session_start();
-    if( !isset($_SESSION["user3l2"]) ){
+    if( !isset($_SESSION["user5l1"]) ){
         header("location:login.php");
     }
 
@@ -11,7 +11,7 @@
       if( isset($_SESSION["pass"]) ){
         $secret_key = $_SESSION["pass"];
       }
-      $secret_iv = 's3cret_iv';
+      $secret_iv = 's3cret_iv_2';
       
       $output = false;
       $encrypt_method = "AES-256-CBC";
