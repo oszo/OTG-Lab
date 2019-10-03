@@ -33,16 +33,37 @@ if( isset($_SESSION["user4l2"]) ){
       <input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Username" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
+
+      <?php 
+      $attempt = 5;
+      if (isset($_GET["attempt"])){ 
+        $attempt = (int)$_GET["attempt"];
+      }
+      ?>  
+      <input type="hidden" id="inputAttempt" name="inputAttempt" class="form-control" value="<?php echo($attempt) ?>">
+
       <div class="checkbox mb-3">
         <label>
         Notice: The system already has <b>a full user account</b>. The administrator has disabled the registration feature.
         </label>
       </div>
+
       <?php if (isset($_GET["error"])){ ?>
-        <div class="alert alert-warning" role="alert">
+        <div class="alert alert-danger" role="alert">
         <?php echo($_GET["error"]); ?>
         </div>      
       <?php } ?>
+
+      <?php if ($attempt < 1){ ?>
+        <div class="alert alert-danger" role="alert">
+          You have <?php echo($attempt); ?> attempt(s) left.
+        </div>      
+      <?php } else if($attempt < 4){ ?>
+        <div class="alert alert-warning" role="alert">
+          You have <?php echo($attempt); ?> attempt(s) left.
+        </div>      
+      <?php } ?>
+
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br/>
       <button class="btn btn-lg btn-secondary btn-block" href="register.php" disabled>Register</button><br/>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>

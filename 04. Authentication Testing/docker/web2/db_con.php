@@ -1,4 +1,4 @@
-<?php 
+<?php
 $hostname = "otg_authn_db2";
 $username = "root";
 $password = "S3cretP@ssw0rd";
