@@ -1,0 +1,24 @@
+version: '2'
+services:
+
+  otg_authz_web1:
+      build:
+        context: .
+        dockerfile: Dockerfile-web1
+      container_name: otg_authz_web1
+      restart: always
+      volumes:
+        - ./web1/:/var/www/html
+      expose:
+        - "9000"
+  otg_authz_engin1:
+      build:
+        context: .
+        dockerfile: Dockerfile-engin1
+      container_name: otg_authz_engin1
+      restart: always
+      volumes_from:
+        - otg_authz_web1
+      ports:
+        - 52027:80
+      command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
