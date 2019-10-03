@@ -14,6 +14,18 @@ This lab has 1 flags as follows topic:
 
 - Default Credentials
 
+#### Lab-II
+
+Target of this lab is on follows URLs:
+
+* http://[DockerIP]:52026
+
+This lab has 1 flags as follows topic:
+
+- Weak lock out mechanism
+- Bypassing authentication schema
+- Weak password policy
+
 ### Start Labs
 
 ```bash
