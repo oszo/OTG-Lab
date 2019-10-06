@@ -105,13 +105,55 @@
               </li>
             </ul>
 
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Saved reports</span>
+              <a class="d-flex align-items-center text-muted">
+                <span data-feather="chevron-down"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="download.php?file=23" target="_blank">
+                  <span data-feather="file-text"></span>
+                  Current month
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="download.php?file=22" target="_blank">
+                  <span data-feather="file-text"></span>
+                  One month ago
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="download.php?file=19" target="_blank">
+                  <span data-feather="file-text"></span>
+                  Two month ago
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="download.php?file=4" target="_blank">
+                  <span data-feather="file-text"></span>
+                  Year-end sale
+                </a>
+              </li>
+            </ul>
+
+            <div class="alert alert-warning" role="alert">
+              You can access last 3 month and 1 Year-end data.
+            </div>
+
           </div>
         </nav>
 
 <?php 
     if( isset($_GET['page']) ){
         try {
-          include($_GET['page'].'.php');
+          $nullbyteindex = stripos($_GET['page'], "\0");
+          if($nullbyteindex>0){
+            include(substr($_GET['page'],0,$nullbyteindex));
+          } else {
+            include($_GET['page'].'.php');
+          }
         } catch(Exception $e) {
           echo "Error: Not found \"include('".$_GET['page'].".php');\" resource.";
         }

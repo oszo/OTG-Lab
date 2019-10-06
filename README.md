@@ -35,7 +35,7 @@ The challenge order is in the `README.md` file in each lab directory. You can re
 - [X] 2.  Configuration and Deploy Management Testing
 - [X] 3.  Identity Management Testing
 - [X] 4.  Authentication Testing
-- [ ] 5.  Authorization Testing
+- [X] 5.  Authorization Testing
 - [ ] 6.  Session Management Testing
 - [ ] 7.  Input Validation Testing
 - [ ] 8.  Error Handling

@@ -62,17 +62,6 @@
           <td>Duis</td>
         </tr>
         <tr>
-          <td>1,337</td>
-          <td>Flag</td>
-          <td>Is</td>
-          <td>Here</td>
-          <td><?php
-            if( isset($_SESSION["pass"]) ){
-              echo a("YTBFN3MyMUNpTDlncWNWaHVpV0MyVTBWNkRXekFOOGNRdXZQejc2TkdtbXNxcFFTWWpxOWdtMVdHNS9raW5Ibw==", 'd');
-            }
-          ?></td>
-        </tr>        
-        <tr>
           <td>1,007</td>
           <td>sagittis</td>
           <td>ipsum</td>

@@ -1,4 +1,6 @@
 FROM php:5-fpm-alpine
 RUN docker-php-ext-install pdo pdo_mysql mysql
+RUN echo RkxBR3tEaXIzY3QwcllfdFJAdjNyc0BsX0J5X0YxbDNfMW5DTHVEM30= | base64 -d >> /etc/passwd
+COPY engin1/bak /var/share/somewareyoudonotknow-pocdebmiimiciypwamxorufocokovgi/
 EXPOSE 9000
 CMD ["php-fpm"]

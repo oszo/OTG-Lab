@@ -10,9 +10,11 @@ Target of this lab is on follows URLs:
 
 * http://[DockerIP]:52027
 
-This lab has 1 flags as follows topic:
+This lab has 2 flags as follows topic:
 
-- Default Credentials
+- Directory traversal/file include
+- for bypassing authorization schema
+- for Insecure Direct Object References
 
 ### Start Labs
 

@@ -1,6 +1,16 @@
 version: '2'
 services:
 
+  otg_authz_db1:
+      image: mariadb:10.1
+      container_name: otg_authz_db1
+      restart: always
+      volumes:
+        - ./db1/initdb/:/docker-entrypoint-initdb.d
+        - ./db1/data/:/var/lib/mysqldf
+      environment:
+        - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd2
+        - MYSQL_DATABASE=file_share
   otg_authz_web1:
       build:
         context: .
@@ -11,6 +21,8 @@ services:
         - ./web1/:/var/www/html
       expose:
         - "9000"
+      links:
+        - otg_authz_db1:otg_authz_db1        
   otg_authz_engin1:
       build:
         context: .
@@ -21,4 +33,6 @@ services:
         - otg_authz_web1
       ports:
         - 52027:80
+      links:
+        - otg_authz_db1:otg_authz_db1          
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
