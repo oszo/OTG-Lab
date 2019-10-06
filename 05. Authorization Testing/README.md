@@ -13,8 +13,8 @@ Target of this lab is on follows URLs:
 This lab has 2 flags as follows topic:
 
 - Directory traversal/file include
-- for bypassing authorization schema
-- for Insecure Direct Object References
+- Bypassing authorization schema
+- Insecure Direct Object References
 
 ### Start Labs
 
