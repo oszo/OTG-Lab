@@ -1,0 +1,2 @@
+FROM nginx:alpine
+COPY engin1/conf.d /etc/nginx/conf.d
