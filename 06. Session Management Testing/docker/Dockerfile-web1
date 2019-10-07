@@ -1,0 +1,4 @@
+FROM php:5-fpm-alpine
+RUN docker-php-ext-install pdo pdo_mysql mysql
+EXPOSE 9000
+CMD ["php-fpm"]

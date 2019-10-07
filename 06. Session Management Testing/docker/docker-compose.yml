@@ -1,0 +1,23 @@
+version: '2'
+services:
+
+  otg_sess_web1:
+      build:
+        context: .
+        dockerfile: Dockerfile-web1
+      container_name: otg_sess_web1
+      restart: always
+      volumes:
+        - ./web1/:/var/www/html
+      expose:
+        - "9000"
+  otg_sess_engin1:
+      build:
+        context: .
+        dockerfile: Dockerfile-engin1
+      container_name: otg_sess_engin1
+      restart: always
+      volumes_from:
+        - otg_sess_web1
+      ports:
+        - 52028:80
