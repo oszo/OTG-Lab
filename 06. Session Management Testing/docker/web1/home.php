@@ -127,7 +127,11 @@ try {
 
     <footer class="footer">
       <div class="container">
-        <span class="text-muted"></span>
+        <span class="text-muted">
+        <?php if($user->user_id !== "000") { ?>
+          <p>You are not an admin ;P</p>
+        <?php } ?>
+        </span>
       </div>
     </footer>
 

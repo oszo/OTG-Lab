@@ -13,6 +13,9 @@ Target of this lab is on follows URLs:
 This lab has 1 flags as follows topic:
 
 - Bypassing Session Management Schema
+- Session Fixation
+- Exposed Session Variables
+- Session Timeout
 
 ### Start Labs
 
