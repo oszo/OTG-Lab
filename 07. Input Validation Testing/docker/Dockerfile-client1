@@ -1,0 +1,3 @@
+FROM joyzoursky/python-chromedriver:3.7
+WORKDIR /usr/workspace
+RUN pip install selenium
