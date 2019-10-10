@@ -80,7 +80,7 @@ if( isset($_SESSION["user7l1"]) ){
         Sorry, guessing the password doesn't work for this lab.
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" id="loginbutton" type="submit">Sign in</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
   </body>
