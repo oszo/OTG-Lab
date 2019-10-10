@@ -8,13 +8,27 @@
 
 Target of this lab is on follows URLs:
 
-* http://[DockerIP]:52029
+- http://[DockerIP]:52029
 
 This lab has 1 flags as follows topic:
 
 - Bypass Input Validation
 - Cross Site Scripting
 - SQL Injection
+
+#### Lab-II
+
+Target of this lab is on follows URLs:
+
+- http://[DockerIP]:52030
+
+This lab has 1 flags as follows topic:
+
+- Code Injection
+- Local File Inclusion
+- Command Injection
+
+This vulnerability occurs in a real web application. You can search for an exploit by `CVE-2018-12613`
 
 ### Start Labs
 

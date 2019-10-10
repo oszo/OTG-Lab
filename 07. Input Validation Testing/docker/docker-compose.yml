@@ -48,3 +48,41 @@ services:
         - otg_inpval_engin1:otg_inpval_engin1   
         - otg_inpval_web1:otg_inpval_web1       
       command: [bash, '-c', 'python test_script.py']
+
+  otg_inpval_db2:
+      image: mariadb:10.1
+      container_name: otg_inpval_db2
+      restart: always
+      volumes:
+        - ./db2/initdb/:/docker-entrypoint-initdb.d
+        - ./db2/data/:/var/lib/mysqldf
+      environment:
+        - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd4
+        - MYSQL_DATABASE=myDB
+        - MYSQL_USER=admin
+        - MYSQL_PASSWORD=S3cretP@ssw0rd4
+  otg_inpval_web2:
+      build:
+        context: .
+        dockerfile: Dockerfile-web2
+      container_name: otg_inpval_web2
+      restart: always
+      volumes:
+        - ./web2/:/var/www/html
+      expose:
+        - "9000"
+      links:
+        - otg_inpval_db2:otg_inpval_db2
+  otg_inpval_engin2:
+      build:
+        context: .
+        dockerfile: Dockerfile-engin2
+      container_name: otg_inpval_engin2
+      restart: always
+      volumes_from:
+        - otg_inpval_web2
+      ports:
+        - 52030:80
+      links:
+        - otg_inpval_db2:otg_inpval_db2
+      command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
