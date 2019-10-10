@@ -52,6 +52,30 @@ INSERT INTO `employee_album` (`id`, `album_name`, `album_subtitle`, `album_detai
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cust_survey`
+--
+
+CREATE TABLE `cust_survey` (
+  `id` int(11) NOT NULL,
+  `cus_name` varchar(255) DEFAULT NULL,
+  `cus_sname` varchar(255) DEFAULT NULL,
+  `cus_email` varchar(255) DEFAULT NULL,
+  `cus_score` varchar(255) DEFAULT NULL,
+  `recommend` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cust_survey`
+--
+
+INSERT INTO `cust_survey` (`id`, `cus_name`, `cus_sname`, `cus_email`, `cus_score`, `recommend`) VALUES
+(1, 'Gloriatur', 'Reformidans', 'gloriatur@vuln-company.com', '$$$$', 'Test recommend.'),
+(2, 'Alice', 'Stultost', 'alice@domain.net', '$$', 'Lorem ipsum dolor sit amet, in corrumpit gloriatur reformidans his. Ei minim quaestio pericula has. Pro ne aliquip blandit omnesque, no probo gloriatur dissentiunt per, ad eos semper putant. In errem laoreet has. Pro ancillae inciderint reformidans ad. Adhuc munere sadipscing pro eu.\r\n\r\nSoleat delenit eu mea. Ut his prompta fabellas accusamus. Has ei dicat saepe, eu est essent utroque epicurei. Quo an habemus copiosae, dico postea scripta mea ut, sed everti consulatu adversarium ad. Cum at stet sale, ea quas laudem his.'),
+(3, 'Nunc', 'Praeclare', 'nunc.p@someware.com', '$$$', 'Hello world!!!');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -68,16 +92,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `status`) VALUES
-(1, 'test', 'test123', 'test@ezcompany.com', 'non-active'),
-(2, 'alice', '1234', 'alice@ezcompany.com', 'non-active'),
-(3, 'bob', 'password', 'bob@ezcompany.com', 'non-active'),
-(4, 'Nunc', 'NuncNunc', 'nunc@ezcompany.com', 'non-active'),
-(5, 'omni', '0mni9999', 'omni@ezcompany.com', 'non-active'),
-(6, 'longus', 'asdfghjkl', 'omni@ezcompany.com', 'non-active'),
-(7, 'stultost', 'stuXXX', 'stultost@ezcompany.com', 'non-active'),
-(8, 'guest', 'guest', 'guest@ezcompany.com', 'active'),
-(9, 'praeclare', 'praeclare', 'praeclare@ezcompany.com', 'non-active'),
-(10, 'quidem', 'quidem', 'quidem@ezcompany.com', 'non-active');
+(1, 'admin', 'f416f7edfd20b16bb7de2eb6bae9ebec', 'admin@vuln-company.com', 'active');
 
 -- --------------------------------------------------------
 
@@ -107,6 +122,12 @@ ALTER TABLE `employee_album`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cust_survey`
+--
+ALTER TABLE `cust_survey`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -123,10 +144,16 @@ ALTER TABLE `employee_album`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `cust_survey`
+--
+ALTER TABLE `cust_survey`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

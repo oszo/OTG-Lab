@@ -1,8 +1,8 @@
 <?php
 session_set_cookie_params(3600,"/");
 session_start();
-if( !isset($_SESSION["user"]) ){
-    header("location:index.php");
+if( !isset($_SESSION["user7l1"]) ){
+    header("location:admin-login.php");
 }
 
 $conn = new mysqli("otg_inpval_db1","root","S3cretP@ssw0rd3","acc_manage_site");
@@ -19,6 +19,7 @@ if( isset($_COOKIE['userProfileId']) ) {
 }
 $result = $conn->query($sql);
 
+$user = new \stdClass();
 $user->id = "";
 $user->username = "";
 $render_profile = '';
@@ -91,7 +92,7 @@ $conn->close();
     <main role="main" class="container">
       <h1 class="mt-5">User Profile:</h1>
       <?php if ( isset($render_profile) ){ echo $render_profile; } ?>
-      <p class="lead"></p>
+      <p class="lead">Are you satisfied, only have access to the admin page?</p>
     </main>
 
     <footer class="footer">
