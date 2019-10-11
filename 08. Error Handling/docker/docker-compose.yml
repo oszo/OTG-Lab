@@ -1,0 +1,14 @@
+version: '2'
+services:
+
+  otg_err_engin1:
+    build:
+      context: .
+      dockerfile: Dockerfile-engin1
+    container_name: otg_err_engin1
+    restart: always
+    volumes:
+      - ./web1/:/usr/local/tomcat/webapps/app1/    
+    ports:
+      - 52031:8080
+    command: ["catalina.sh", "run"]
