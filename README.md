@@ -40,7 +40,7 @@ The challenge order is in the `README.md` file in each lab directory. You can re
 - [X] 7.  Input Validation Testing
 - [X] 8.  Error Handling
 - [X] 9.  Cryptography
-- [ ] 10. Business Logic Testing
+- [X] 10. Business Logic Testing
 - [ ] 11. Client Side Testing
 
 ## Contribution
