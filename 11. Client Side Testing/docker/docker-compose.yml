@@ -1,0 +1,23 @@
+version: "2"
+services:
+
+  otg_client_engin1:
+    build: ./engin1
+    links:
+      - otg_client_web1
+    ports:
+    - "52111:80"
+
+  otg_client_web1:
+    build: ./web1
+    links:
+      - redis
+    expose:
+      - "3000"
+    environment:
+      - NAME=John
+
+  redis:
+    image: redis:alpine
+    expose:
+      - "6379"
