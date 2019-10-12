@@ -1,0 +1,30 @@
+version: "2"
+services:
+  otg_buslogic_api1:
+    build: 
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: otg_buslogic_api1
+    restart: always
+    volumes:
+      - "./api/app:/usr/src/app"
+    environment:
+      HOST: 0.0.0.0
+    command: "npm start"
+  otg_buslogic_web1:
+    build: 
+      context: .
+      dockerfile: web/Dockerfile
+    container_name: otg_buslogic_web1
+    restart: always
+    ports:
+      - 52033:3000
+    environment:
+      HOST: 0.0.0.0
+    links:
+        - otg_buslogic_api1:otg_buslogic_api1
+    environment:
+      NUXT_HOST: 0.0.0.0
+      API_URL_BROWSER: /api
+      STRAPI_URL: http://otg_buslogic_api1:3000/
+    command: "npm start"
