@@ -283,4 +283,13 @@ $(function() {
     log('host is now ' + serverName);
   })
 
+  // Check browser support
+  if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("logMessage", "Importan data may be in log or local storage like this message.");
+    localStorage.setItem("loc@l5t0rag3", "ICAgRkxBR3tTM25zMXRpVmVfaU5fbG9jQGxfNXQwcmFnM30=");
+    // Retrieve
+    console.log(localStorage.getItem("logMessage"));
+  }
+
 });

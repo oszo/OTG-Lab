@@ -10,7 +10,7 @@ Target of this lab is on follows URLs:
 
 - http://[DockerIP]:52111
 
-This lab has 1 flags as follows topic:
+This lab has 2 flags as follows topic:
 
 - WebSockets
 - Local Storage
