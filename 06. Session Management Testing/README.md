@@ -8,7 +8,7 @@
 
 Target of this lab is on follows URLs:
 
-* http://[DockerIP]:52028
+* http://[DockerIP]:52061
 
 This lab has 1 flags as follows topic:
 

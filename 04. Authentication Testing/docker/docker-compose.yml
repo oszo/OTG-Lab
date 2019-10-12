@@ -8,7 +8,7 @@ services:
     container_name: otg_authn_engin1
     restart: always
     ports:
-      - 52025:8080
+      - 52041:8080
     command: ["catalina.sh", "run"]
 
   otg_authn_db2:
@@ -42,6 +42,6 @@ services:
       volumes_from:
         - otg_authn_web2
       ports:
-        - 52026:80
+        - 52042:80
       links:
         - otg_authn_db2:otg_authn_db2        

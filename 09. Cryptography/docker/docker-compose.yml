@@ -32,7 +32,7 @@ services:
       volumes_from:
         - otg_crypst_web1
       ports:
-        - 52032:80
+        - 52091:80
       links:
         - otg_crypst_db1:otg_crypst_db1          
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']

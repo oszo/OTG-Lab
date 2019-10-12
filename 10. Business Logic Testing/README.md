@@ -8,23 +8,25 @@
 
 Target of this lab is on follows URLs:
 
-- http://[DockerIP]:52033
+- http://[DockerIP]:52101
 
 This lab has 1 flags as follows topic:
 
-- Padding Oracle
-- Weak Encryption
+- Business Logic Data Validation
+- Ability to Forge Requests
+- The Circumvention of Work Flows
 
 #### Lab-II
 
 Target of this lab is on follows URLs:
 
-- http://[DockerIP]:52034
+- http://[DockerIP]:52102
 
 This lab has 1 flags as follows topic:
 
-- Padding Oracle
-- Weak Encryption
+- Application Mis-use
+- Upload of Unexpected File Types
+- Upload of Malicious Files
 
 ### Start Labs
 

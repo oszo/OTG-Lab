@@ -20,7 +20,7 @@ services:
       volumes_from:
         - otg_ident_web1
       ports:
-        - 52023:80
+        - 52031:80
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
 
   otg_ident_web2:
@@ -42,5 +42,5 @@ services:
       volumes_from:
         - otg_ident_web2
       ports:
-        - 52024:80
+        - 52032:80
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']

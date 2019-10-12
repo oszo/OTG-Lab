@@ -19,7 +19,7 @@ services:
     container_name: otg_buslogic_web1
     restart: always
     ports:
-      - 52033:3000
+      - 52101:3000
     environment:
       HOST: 0.0.0.0
     links:
@@ -63,7 +63,7 @@ services:
       volumes_from:
         - otg_buslogic_web2
       ports:
-        - 52034:80
+        - 52102:80
       links:
         - otg_buslogic_db2:otg_buslogic_db2
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']

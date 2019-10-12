@@ -10,5 +10,5 @@ services:
     volumes:
       - ./web1/:/usr/local/tomcat/webapps/app1/    
     ports:
-      - 52031:8080
+      - 52081:8080
     command: ["catalina.sh", "run"]

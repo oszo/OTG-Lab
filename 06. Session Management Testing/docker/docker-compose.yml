@@ -20,4 +20,4 @@ services:
       volumes_from:
         - otg_sess_web1
       ports:
-        - 52028:80
+        - 52061:80

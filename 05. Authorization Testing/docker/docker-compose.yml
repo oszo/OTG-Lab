@@ -32,7 +32,7 @@ services:
       volumes_from:
         - otg_authz_web1
       ports:
-        - 52027:80
+        - 52051:80
       links:
         - otg_authz_db1:otg_authz_db1          
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']

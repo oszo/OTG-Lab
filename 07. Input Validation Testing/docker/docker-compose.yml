@@ -32,7 +32,7 @@ services:
       volumes_from:
         - otg_inpval_web1
       ports:
-        - 52029:80
+        - 52071:80
       links:
         - otg_inpval_db1:otg_inpval_db1          
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
@@ -82,7 +82,7 @@ services:
       volumes_from:
         - otg_inpval_web2
       ports:
-        - 52030:80
+        - 52072:80
       links:
         - otg_inpval_db2:otg_inpval_db2
       command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
