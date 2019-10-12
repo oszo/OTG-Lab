@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `acc_manage_site`
+-- Database: `acc_manage_site2`
 --
-CREATE DATABASE IF NOT EXISTS `acc_manage_site` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `acc_manage_site`;
+CREATE DATABASE IF NOT EXISTS `acc_manage_site2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `acc_manage_site2`;
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `status`) VALUES
-(1, 'admin', 'f416f7edfd20b16bb7de2eb6bae9ebec', 'admin@vuln-company.com', 'active');
+(1, 'admin', '330b2dce7fe73524b2d5bb24fe2e4730', 'admin@vuln-company.com', 'active');
 
 -- --------------------------------------------------------
 

@@ -9,8 +9,8 @@ services:
         - ./db1/initdb/:/docker-entrypoint-initdb.d
         - ./db1/data/:/var/lib/mysqldf
       environment:
-        - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd3
-        - MYSQL_DATABASE=acc_manage_site
+        - MYSQL_ROOT_PASSWORD=S3cret99P@ssw0rd
+        - MYSQL_DATABASE=acc_manage_site2
   otg_crypst_web1:
       build:
         context: .
