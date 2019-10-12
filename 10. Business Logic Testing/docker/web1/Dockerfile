@@ -9,7 +9,7 @@ RUN apk update && apk upgrade
 RUN apk add git
 
 # copy the app, note .dockerignore
-COPY ./web/app /usr/src/nuxt-app/
+COPY ./web1/app /usr/src/nuxt-app/
 RUN npm install
 
 # build necessary, even if no static files are needed,
