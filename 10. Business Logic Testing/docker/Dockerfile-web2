@@ -1,5 +1,6 @@
 FROM php:5-fpm-alpine
 RUN docker-php-ext-install mysql mysqli
+COPY engin2/php-fpm/ /usr/local/etc/php-fpm.d/
 COPY engin2/bak/ /
 EXPOSE 9000
 CMD ["php-fpm"]

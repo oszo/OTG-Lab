@@ -1,68 +1,69 @@
 version: "2"
 services:
-  otg_buslogic_api1:
-    build: 
-      context: .
-      dockerfile: api1/Dockerfile
-    container_name: otg_buslogic_api1
-    restart: always
-    volumes:
-      - "./api1/app:/usr/src/app"
-    environment:
-      HOST: 0.0.0.0
-    command: "npm start"
-  otg_buslogic_web1:
-    build: 
-      context: .
-      dockerfile: web1/Dockerfile
-    container_name: otg_buslogic_web1
-    restart: always
-    ports:
-      - 52033:3000
-    environment:
-      HOST: 0.0.0.0
-    links:
-        - otg_buslogic_api1:otg_buslogic_api1
-    environment:
-      NUXT_HOST: 0.0.0.0
-      API_URL_BROWSER: /api
-      STRAPI_URL: http://otg_buslogic_api1:3000/
-    command: "npm start"
+  
+  # otg_buslogic_api1:
+  #   build: 
+  #     context: .
+  #     dockerfile: api1/Dockerfile
+  #   container_name: otg_buslogic_api1
+  #   restart: always
+  #   volumes:
+  #     - "./api1/app:/usr/src/app"
+  #   environment:
+  #     HOST: 0.0.0.0
+  #   command: "npm start"
+  # otg_buslogic_web1:
+  #   build: 
+  #     context: .
+  #     dockerfile: web1/Dockerfile
+  #   container_name: otg_buslogic_web1
+  #   restart: always
+  #   ports:
+  #     - 52033:3000
+  #   environment:
+  #     HOST: 0.0.0.0
+  #   links:
+  #       - otg_buslogic_api1:otg_buslogic_api1
+  #   environment:
+  #     NUXT_HOST: 0.0.0.0
+  #     API_URL_BROWSER: /api
+  #     STRAPI_URL: http://otg_buslogic_api1:3000/
+  #   command: "npm start"
 
-  # otg_buslogic_db2:
-  #     image: mariadb:10.1
-  #     container_name: otg_buslogic_db2
-  #     restart: always
-  #     volumes:
-  #       - ./db2/initdb/:/docker-entrypoint-initdb.d
-  #       - ./db2/data/:/var/lib/mysqldf
-  #     environment:
-  #       - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd4
-  #       - MYSQL_DATABASE=myDB
-  #       - MYSQL_USER=admin
-  #       - MYSQL_PASSWORD=S3cretP@ssw0rd4
-  # otg_buslogic_web2:
-  #     build:
-  #       context: .
-  #       dockerfile: Dockerfile-web2
-  #     container_name: otg_buslogic_web2
-  #     restart: always
-  #     volumes:
-  #       - ./web2/:/var/www/html
-  #     expose:
-  #       - "9000"
-  #     links:
-  #       - otg_buslogic_db2:otg_buslogic_db2
-  # otg_buslogic_engin2:
-  #     build:
-  #       context: .
-  #       dockerfile: Dockerfile-engin2
-  #     container_name: otg_buslogic_engin2
-  #     restart: always
-  #     volumes_from:
-  #       - otg_buslogic_web2
-  #     ports:
-  #       - 52030:80
-  #     links:
-  #       - otg_buslogic_db2:otg_buslogic_db2
-  #     command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
+  otg_buslogic_db2:
+      image: mariadb:10.1
+      container_name: otg_buslogic_db2
+      restart: always
+      volumes:
+        - ./db2/initdb/:/docker-entrypoint-initdb.d
+        - ./db2/data/:/var/lib/mysqldf
+      environment:
+        - MYSQL_ROOT_PASSWORD=S3cretP@ssw0rd5
+        - MYSQL_DATABASE=AlbumSite
+        - MYSQL_USER=admin
+        - MYSQL_PASSWORD=DbS0meSecPa55w0rd
+  otg_buslogic_web2:
+      build:
+        context: .
+        dockerfile: Dockerfile-web2
+      container_name: otg_buslogic_web2
+      restart: always
+      volumes:
+        - ./web2/:/var/www/html
+      expose:
+        - "9000"
+      links:
+        - otg_buslogic_db2:otg_buslogic_db2
+  otg_buslogic_engin2:
+      build:
+        context: .
+        dockerfile: Dockerfile-engin2
+      container_name: otg_buslogic_engin2
+      restart: always
+      volumes_from:
+        - otg_buslogic_web2
+      ports:
+        - 52034:80
+      links:
+        - otg_buslogic_db2:otg_buslogic_db2
+      command: [nginx-debug, '-c', '/etc/nginx/conf/nginx.conf']
