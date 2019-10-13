@@ -55,13 +55,10 @@ target/
 
 .DS_Store
 
-*.db
-*.log
 .idea/
 .vscode/
 CTFd/static/uploads
 CTFd/uploads
-.data/
 .ctfd_secret_key
 .*.swp
 
