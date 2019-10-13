@@ -23,9 +23,9 @@ Target of this lab is on follows URLs:
 
 This lab has 1 flags as follows topic:
 
-- Infrastructure Configuration
-- Application Platform Configuration
-- Enumerate Infrastructure and Application Interfaces
+- Account Provisioning Process
+- Account Enumeration and Guessable User Account
+- Weak or unenforced username policy
 
 ### Start Labs
 
