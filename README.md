@@ -26,6 +26,15 @@ $ cd "02. Configuration and Deploy Management Testing" # Go to the lab directory
 $ cd docker
 $ docker-compose up
 ```
+## Start CTFd
+
+CTFd is CTF platform for submit flags of each lab. User the following command for start the CTFd application:
+
+```bash
+$ cd OTG-Lab
+$ cd "CTFd"
+$ docker-compose up
+```
 
 The challenge order is in the `README.md` file in each lab directory. You can read the challenge order by click into each lab directory in this git repository.
 
