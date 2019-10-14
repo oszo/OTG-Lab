@@ -30,10 +30,14 @@ if( !isset($_GET["key"]) && !isset($_SESSION["user9l1"]) ){
   }
 
   $username = "";
-  if(isset($_SESSION["pass9l1"]) && isset($_GET["token"])){
-    $username = cryptography($_GET["token"], $_SESSION["pass9l1"],'d');
-  } else {
+  if(isset($_SESSION["user9l1"]) && isset($_SESSION["pass9l1"])){
     $username = $_SESSION["user9l1"];
+  } else if(isset($_GET["token"]) && isset($_GET["key"])){
+    $username = cryptography($_GET["token"], $_GET["key"],'d');
+  } else {
+    session_unset();
+    session_destroy();
+    header("location:index.php");
   }
 
   try {
