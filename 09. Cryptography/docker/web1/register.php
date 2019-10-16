@@ -6,10 +6,10 @@ $insert_status = false;
 $user_token = "";
 $user_key = "";
 
-function cryptography( $string, $secret_key, $action = 'e' ) {
+function cryptography( $string, $action = 'e' ) {
   $output = false;
   $encrypt_method = "AES-256-ECB";
-  $key = hash( 'sha256', $secret_key );
+  $key = hash( 'sha256', ".x(?xPs&Q_iOt:_60GRc]w\M3qOW&?," );
   if( $action == 'e' ) {
     $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, OPENSSL_RAW_DATA ) );
   }
@@ -43,8 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset(
   $conn->close();
 
   $_SESSION["pass9l1"] = $cus_password;
-  $user_token = cryptography($cus_username, $cus_password, 'e');
-  $user_key = $cus_password;
+  $user_token = cryptography($cus_username, 'e');
   $insert_status = true;
 }
 ?>
@@ -130,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset(
           <br/>
           <div class="mb-12">
             <div class="alert alert-success" role="alert">
-              Thank You, click <a href="home.php?token=<?php echo(urlencode($user_token)); ?>&key=<?php echo(urlencode($user_key)); ?>">HERE</a> to auto login.
+              Thank You, click <a href="home.php?token=<?php echo(urlencode($user_token)); ?>">HERE</a> to auto login.
             </div>
           </div>
         <?php } ?>        
