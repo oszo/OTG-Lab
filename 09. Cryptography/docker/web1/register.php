@@ -45,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset(
   $_SESSION["pass9l1"] = $cus_password;
   $user_token = cryptography($cus_username, 'e');
   $insert_status = true;
+} else if (isset($_POST['username']) && strtolower($_POST['username']) == "admin"){
+  echo "<script>alert('User admin is already exists.');</script>";
 }
 ?>
 
