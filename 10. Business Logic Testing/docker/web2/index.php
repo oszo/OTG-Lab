@@ -26,9 +26,6 @@
 <?php } ?>
 			<input type="submit" value="sign in" class="form-control btn btn-primary">
 		</div>
-		<div class="form-group">
-			<a href="register.php" class="form-control btn btn-secondary" >Register</a>
-		</div>
 	</form>
 	</div>
 </div>
