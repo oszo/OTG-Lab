@@ -58,7 +58,7 @@ try {
   if ($user->username === "admin"){
     $render_profile = $render_profile . '<div class="row"><div class="col-4 text-right">Flag: </div><div class="col-8 text-left">FLAG{PPPPPPPPPPPPPPPPP@dD1nG_Or@cL3}</div></div>';
   } else {
-    $render_profile = $render_profile . '<p class="lead">Are you satisfied, only have access with regular user?</p>';
+    $render_profile = $render_profile . '<p class="lead">Are you satisfied, only have access with regular user? what about access with admin user</p>';
   }
 
   $render_profile = $render_profile . '</p>';
