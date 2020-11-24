@@ -6,7 +6,7 @@
 
 #### Lab-I
 
-Target of this lab is on domain [vulncompany.com](http://www.vulncompany.com/)
+Target of this lab is on domain [vuln.company](http://www.vuln.company/)
 
 This lab has 10 flags as follows topic:
 

@@ -51,7 +51,7 @@ The challenge order is in the `README.md` file in each lab directory. You can re
 - [X] 9.  Cryptography
 - [X] 10. Business Logic Testing
 - [X] 11. Client Side Testing
-- [X] 12. Web Tutorials
+- [ ] Update to WSTG 4.1
 
 ## Contribution
 
