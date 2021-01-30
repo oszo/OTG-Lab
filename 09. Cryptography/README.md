@@ -15,7 +15,7 @@ This lab has 1 flags as follows topic:
 - Padding Oracle
 - Weak Encryption
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -23,3 +23,13 @@ $ cd "09. Cryptography"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "09. Cryptography"
+$ cd docker
+$ docker-compose rm -f -s
+```
+

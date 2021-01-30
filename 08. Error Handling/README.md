@@ -15,7 +15,7 @@ This lab has 1 flags as follows topic:
 - Analysis of Error Codes
 - Analysis of Stack Traces
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -23,3 +23,13 @@ $ cd "08. Error Handling"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "08. Error Handling"
+$ cd docker
+$ docker-compose rm -f -s
+```
+

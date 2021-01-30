@@ -27,7 +27,7 @@ This lab has 1 flags as follows topic:
 - Account Enumeration and Guessable User Account
 - Weak or unenforced username policy
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -35,3 +35,13 @@ $ cd "03. Identity Management Testing"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "03. Identity Management Testing"
+$ cd docker
+$ docker-compose rm -f -s
+```
+

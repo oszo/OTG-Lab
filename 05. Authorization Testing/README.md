@@ -16,7 +16,7 @@ This lab has 2 flags as follows topic:
 - Bypassing authorization schema
 - Insecure Direct Object References
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -24,3 +24,13 @@ $ cd "05. Authorization Testing"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "05. Authorization Testing"
+$ cd docker
+$ docker-compose rm -f -s
+```
+

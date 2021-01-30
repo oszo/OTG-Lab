@@ -28,7 +28,7 @@ This lab has 1 flags as follows topic:
 - Upload of Unexpected File Types
 - Upload of Malicious Files
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -36,3 +36,13 @@ $ cd "10. Business Logic Testing"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "10. Business Logic Testing"
+$ cd docker
+$ docker-compose rm -f -s
+```
+

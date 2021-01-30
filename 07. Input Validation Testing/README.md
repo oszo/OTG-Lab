@@ -30,7 +30,7 @@ This lab has 1 flags as follows topic:
 
 This vulnerability occurs in a real web application. You can search for an exploit by `CVE-2018-12613`
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -38,3 +38,13 @@ $ cd "07. Input Validation Testing"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "07. Input Validation Testing"
+$ cd docker
+$ docker-compose rm -f -s
+```
+

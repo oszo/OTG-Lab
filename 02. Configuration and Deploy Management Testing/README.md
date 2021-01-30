@@ -32,7 +32,7 @@ This lab has 1 flags as follows topic:
 - HTTP Methods
 - File Permission
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -40,3 +40,13 @@ $ cd "02. Configuration and Deploy Management Testing"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "02. Configuration and Deploy Management Testing"
+$ cd docker
+$ docker-compose rm -f -s
+```
+

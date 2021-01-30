@@ -17,7 +17,7 @@ This lab has 1 flags as follows topic:
 - Exposed Session Variables
 - Session Timeout
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -25,3 +25,13 @@ $ cd "06. Session Management Testing"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "06. Session Management Testing"
+$ cd docker
+$ docker-compose rm -f -s
+```
+

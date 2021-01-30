@@ -17,15 +17,28 @@
 
 ## Quick start
 
-Almost all the labs can launch by docker compose. Just clone this git repository and cd into each folder and run `docker-compse up` such as follow:
+### Start the lab
+
+Almost all the labs can launch by docker compose. Just clone this git repository and cd into each folder and run `docker-compse up -d` such as follow:
 
 ```bash
 $ git clone https://github.com/oszo/OTG-Lab.git
 $ cd OTG-Lab
 $ cd "02. Configuration and Deploy Management Testing" # Go to the lab directory you want to do.
 $ cd docker
-$ docker-compose up
+$ docker-compose up -d
 ```
+### Stop the lab
+
+After playing the labs.  cd into each folder and run `docker-compse rm -f -s`  to stop and clean all services, such as follow:
+
+```bash
+$ cd OTG-Lab
+$ cd "02. Configuration and Deploy Management Testing" # Go to the lab directory you want to stop.
+$ cd docker
+$ docker-compose rm -f -s
+```
+
 ## Start CTFd
 
 CTFd is CTF platform for submit flags of each lab. User the following command for start the CTFd application:
@@ -33,7 +46,7 @@ CTFd is CTF platform for submit flags of each lab. User the following command fo
 ```bash
 $ cd OTG-Lab
 $ cd "CTFd"
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 The challenge order is in the `README.md` file in each lab directory. You can read the challenge order by click into each lab directory in this git repository.
@@ -51,7 +64,7 @@ The challenge order is in the `README.md` file in each lab directory. You can re
 - [X] 9.  Cryptography
 - [X] 10. Business Logic Testing
 - [X] 11. Client Side Testing
-- [ ] Update to WSTG 4.1
+- [ ] Update to WSTG 4.2
 
 ## Contribution
 

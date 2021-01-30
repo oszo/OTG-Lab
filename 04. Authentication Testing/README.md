@@ -26,7 +26,7 @@ This lab has 1 flags as follows topic:
 - Bypassing authentication schema
 - Weak password policy
 
-### Start Labs
+### Start the labs
 
 ```bash
 $ cd OTG-Lab
@@ -34,3 +34,13 @@ $ cd "04. Authentication Testing"
 $ cd docker
 $ docker-compose up
 ```
+
+### Stop the labs
+
+```bash
+$ cd OTG-Lab
+$ cd "04. Authentication Testing"
+$ cd docker
+$ docker-compose rm -f -s
+```
+
