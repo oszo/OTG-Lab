@@ -17,6 +17,8 @@
 
 ## Quick start
 
+The challenge order is in the `README.md` file in each lab directory. You can read the challenge order by click into each lab directory in this git repository.
+
 ### Start the lab
 
 Almost all the labs can launch by docker compose. Just clone this git repository and cd into each folder and run `docker-compse up -d` such as follow:
@@ -49,7 +51,7 @@ $ cd "CTFd"
 $ docker-compose up -d
 ```
 
-The challenge order is in the `README.md` file in each lab directory. You can read the challenge order by click into each lab directory in this git repository.
+
 
 ## Todo
 
