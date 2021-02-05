@@ -33,7 +33,7 @@ This lab has 1 flags as follows topic:
 $ cd OTG-Lab
 $ cd "03. Identity Management Testing"
 $ cd docker
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 ### Stop the labs

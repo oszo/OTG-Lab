@@ -36,7 +36,7 @@ This vulnerability occurs in a real web application. You can search for an explo
 $ cd OTG-Lab
 $ cd "07. Input Validation Testing"
 $ cd docker
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 ### Stop the labs

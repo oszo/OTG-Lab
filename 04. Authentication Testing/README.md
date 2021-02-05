@@ -32,7 +32,7 @@ This lab has 1 flags as follows topic:
 $ cd OTG-Lab
 $ cd "04. Authentication Testing"
 $ cd docker
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 ### Stop the labs

@@ -38,7 +38,7 @@ This lab has 1 flags as follows topic:
 $ cd OTG-Lab
 $ cd "02. Configuration and Deploy Management Testing"
 $ cd docker
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 ### Stop the labs
