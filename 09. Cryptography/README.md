@@ -12,7 +12,6 @@ Target of this lab is on follows URLs:
 
 This lab has 1 flags as follows topic:
 
-- Padding Oracle
 - Weak Encryption
 
 ### Start the labs
