@@ -10,12 +10,14 @@ Target of this lab is on domain [vuln.company](http://www.vuln.company/)
 
 This lab has 10 flags as follows topic:
 
-- Web Cached
-- Social Media
-- Web Server Fingerprint
-- Review Webserver Metafiles
-- Access UAT Site
-- Access Secret Site
 - HTML Comment
-- Sensitive in Cookie
+- Review Webserver Metafiles
 - Discover Web Resource
+- Web Cached
+- DomainName Review
+- Social Media
+- Access UAT Site
+- Web Server Fingerprint
+- Sensitive in Cookie
+- Access Secret Site
+
