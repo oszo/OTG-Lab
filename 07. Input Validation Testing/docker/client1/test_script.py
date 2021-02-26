@@ -32,6 +32,11 @@ class TestTemplate(unittest.TestCase):
             self.driver.find_element_by_id("loginbutton").click()
 
             self.driver.get('http://otg_inpval_engin1:80/index.php')
+
+            for i in range(0,100000):
+                obj = self.driver.switch_to.alert
+                obj.accept()
+                
         except NoSuchElementException as ex:
             self.fail(ex.msg)
 
